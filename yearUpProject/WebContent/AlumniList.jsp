@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:forEach items = "${student_email}" var="item">
-			<p><a href="${item}">${item}"</a>
+			<p><a href="mailto:${item}">${item}"</a>
 	</c:forEach>
 </body>
 </html>
