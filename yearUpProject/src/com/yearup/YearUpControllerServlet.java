@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pluralsight.Book;
+
 
 
 /**
@@ -37,23 +39,27 @@ public class YearUpControllerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo();
 		if(action.equals("/new")) {
-			System.out.println("NEW BOOKS");
+			System.out.println("NEW STUDENT ENTRY");
 			addStudent(request,response);
 		}
 		else {
-			System.out.println("LIST OF BOOKS");
+			System.out.println("LIST OF STUDENTS");
 			listStudent(request, response);
 		}
 
 	}
 	private void addStudent(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/AlumniForm.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 	private void listStudent(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		ArrayList<Student> AlumnList = bookDAO.listAllBooks();
+		request.setAttribute("book_list", bookList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookList.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 
@@ -63,7 +69,7 @@ public class YearUpControllerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo();
 		 if(action.equals("/insert")){
-			 System.out.println("INSERTING BOOKS POST METHOD");
+			 System.out.println("INSERTING STUDENT POST METHOD");
 			insertStudent(request,response);
 		}
 	}
