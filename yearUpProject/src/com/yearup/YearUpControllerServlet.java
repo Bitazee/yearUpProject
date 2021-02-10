@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pluralsight.Book;
+
 
 
 
@@ -48,17 +48,17 @@ public class YearUpControllerServlet extends HttpServlet {
 		}
 
 	}
-	private void addStudent(HttpServletRequest request, HttpServletResponse response) {
+	private void addStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/AlumniForm.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/StudentForm.jsp");
 		dispatcher.forward(request, response);
 	}
 	
-	private void listStudent(HttpServletRequest request, HttpServletResponse response) {
+	private void listStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ArrayList<Student> AlumnList = bookDAO.listAllBooks();
-		request.setAttribute("book_list", bookList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookList.jsp");
+		ArrayList<Student> studentList = studentDAO.listAllStudents();
+		request.setAttribute("student_list", studentList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/StudentList.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -74,9 +74,9 @@ public class YearUpControllerServlet extends HttpServlet {
 		}
 	}
 	private void insertStudent(HttpServletRequest request, HttpServletResponse response) {
-		String studentName = request.getParameter("booktitle");
-		String studentCohort = request.getParameter("bookauthor");
-		String studentTrack = request.getParameter("bookprice");
+		String studentName = request.getParameter("");
+		String studentCohort = request.getParameter("");
+		String studentTrack = request.getParameter("");
 		String studentInternship = request.getParameter("");
 		boolean converted = false;
 		String studentEmail = request.getParameter("");
