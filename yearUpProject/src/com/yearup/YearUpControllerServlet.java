@@ -79,6 +79,7 @@ public class YearUpControllerServlet extends HttpServlet {
 			insertStudent(request,response);
 		}
 	}
+	// insert student method
 	private void insertStudent(HttpServletRequest request, HttpServletResponse response) {
 		String studentName = request.getParameter("studentname");
 		String studentCohort = request.getParameter("studentcohort");
