@@ -5,11 +5,11 @@ public class Student {
 	private String cohortName;
 	private String track;
 	private String internShip;
-	private boolean converted;
+	private String converted;
 	private String email;
 	
 	
-	public Student(String name, String cohortName, String track, String internShip, boolean converted, String email) {
+	public Student(String name, String cohortName, String track, String internShip, String converted, String email) {
 		super();
 		this.name = name;
 		this.cohortName = cohortName;
@@ -44,10 +44,10 @@ public class Student {
 	public void setInternShip(String internShip) {
 		this.internShip = internShip;
 	}
-	public boolean isConverted() {
+	public String isConverted() {
 		return converted;
 	}
-	public void setConverted(boolean converted) {
+	public void setConverted(String converted) {
 		this.converted = converted;
 	}
 	public String getEmail() {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pluralsight.Book;
+
 
 
 
@@ -48,16 +48,16 @@ public class YearUpControllerServlet extends HttpServlet {
 		}
 
 	}
-	private void addStudent(HttpServletRequest request, HttpServletResponse response) {
+	private void addStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/AlumniForm.jsp");
 		dispatcher.forward(request, response);
 	}
 	
-	private void listStudent(HttpServletRequest request, HttpServletResponse response) {
+	private void listStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ArrayList<Student> AlumnList = bookDAO.listAllBooks();
-		request.setAttribute("book_list", bookList);
+		ArrayList<Student> AlumnList = studentDAO.listAllStudents();
+		request.setAttribute("book_list", studentList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookList.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -78,7 +78,7 @@ public class YearUpControllerServlet extends HttpServlet {
 		String studentCohort = request.getParameter("bookauthor");
 		String studentTrack = request.getParameter("bookprice");
 		String studentInternship = request.getParameter("");
-		boolean converted = false;
+		String converted = request.getParameter("");
 		String studentEmail = request.getParameter("");
 		
 		Student newStudent = new Student(studentName, studentCohort, studentTrack,studentInternship,converted,studentInternship);

@@ -55,6 +55,33 @@ public class StudentDAO {
 	
 	public ArrayList<Student> listAllStudents(){
 		ArrayList<Student> studentList = new ArrayList<>();
+		
+		try {
+			Statement statement = jdbcConnection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM students");
+			while(resultSet.next()) {
+				String name = resultSet.getString("studentName");
+				String cohort = resultSet.getString("studentCohort");
+				String track = resultSet.getString("studentTrack");
+				String internship = resultSet.getString("studentInternShip");
+				String converted = resultSet.getString("converted");
+				String email = resultSet.getString("studentEmail");
+				
+				
+				Student student = new Student(name,cohort,track,internship,converted,email);
+				studentList.add(student);
+				
+				
+				statement.close();
+				resultSet.close();
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return studentList;
 	
 	}
