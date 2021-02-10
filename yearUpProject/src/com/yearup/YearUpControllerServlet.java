@@ -58,7 +58,7 @@ public class YearUpControllerServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		ArrayList<Student> AlumnList = studentDAO.listAllStudents();
-		request.setAttribute("book_list", studentList);
+		request.setAttribute("student_list", studentList);
 		
 
 		ArrayList<Student> studentList = studentDAO.listAllStudents();
@@ -80,11 +80,11 @@ public class YearUpControllerServlet extends HttpServlet {
 		}
 	}
 	private void insertStudent(HttpServletRequest request, HttpServletResponse response) {
-		String studentName = request.getParameter("");
-		String studentCohort = request.getParameter("");
-		String studentTrack = request.getParameter("");
-		String studentInternship = request.getParameter("");
-		String converted = request.getParameter("");
+		String studentName = request.getParameter("studentname");
+		String studentCohort = request.getParameter("studentcohort");
+		String studentTrack = request.getParameter("studenttrack");
+		String studentInternship = request.getParameter("studentinternship");
+		String converted = request.getParameter("converted");
 		String studentEmail = request.getParameter("");
 		
 		Student newStudent = new Student(studentName, studentCohort, studentTrack,studentInternship,converted,studentInternship);
