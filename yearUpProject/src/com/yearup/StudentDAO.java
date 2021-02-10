@@ -44,7 +44,7 @@ public class StudentDAO {
 	
 	private void useDatabase() {
 		try {
-			String sqlStatement = "USE students";
+			String sqlStatement = "USE alumniList";
 			Statement statment = jdbcConnection.createStatement();
 			statment.executeUpdate(sqlStatement);
 		}catch(Exception e) {

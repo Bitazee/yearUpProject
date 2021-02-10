@@ -57,9 +57,6 @@ public class YearUpControllerServlet extends HttpServlet {
 	private void listStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		ArrayList<Student> AlumnList = studentDAO.listAllStudents();
-		request.setAttribute("student_list", studentList);
-		
 
 		ArrayList<Student> studentList = studentDAO.listAllStudents();
 		request.setAttribute("student_list", studentList);
