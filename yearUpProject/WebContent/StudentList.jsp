@@ -23,21 +23,22 @@
 			<th>Student track</th>
 			<th>Student internship</th>
 			<th>Converted</th>
+			<th>Email</th>
 		</tr>
 
 		<c:forEach items="${student_list}" var="item">
 		<tr>
-			<td>${item.getStudentName()}</td>
-			<td>${item.getStudentCohort()}</td>
-			<td>${item.getStudentTrack()}</td>
-			<td>${item.getStudentInternship()}</td>
-			<td>${item.getStudentConversion()}</td>
+			<td>${item.getName()}</td>
+			<td>${item.getCohortName()}</td>
+			<td>${item.getTrack()}</td>
+			<td>${item.getInternShip()}</td>
+			<td>${item.isConverted()}</td>
+			<td><a href= "mailto:${item.getEmail()}">${item.getEmail()}</a></td>
+			
 		</tr>
 	</c:forEach>
 		
-	<c:forEach items = "${student_email}" var="item">
-			<p><a href="mailto:${item}">${item}"</a>
-	</c:forEach>
+	
 		</table>
 </body>
 </html>

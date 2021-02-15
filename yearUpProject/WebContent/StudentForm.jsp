@@ -23,10 +23,11 @@
         <input type="text" name="studenttrack" value="">
         <p><label>Student Internship:</label>
         <input type="text" name="studentinternship" value="">
+        <p><label>Email:</label>
+    	<input type="text" name="studentEmail" value="">
         <p><label>Converted?</label>
-        <input type="checkbox" name="converted"> <br>
+        <p>Yes <input type="radio" name="converted" value="yes">  No<input type="radio" name="converted" value="no"><br>
         <input id="submit-btn" 	type="submit" value="Submit">
-    
     </form>
 </body>
 </html>

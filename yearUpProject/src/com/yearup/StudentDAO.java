@@ -72,7 +72,7 @@ public class StudentDAO {
 				studentList.add(student);
 				
 				
-				statement.close();
+				
 				resultSet.close();
 				
 			}
@@ -86,9 +86,29 @@ public class StudentDAO {
 	
 	}
 	
-	public void insertStudent(Student newStudent) {
-		// TODO Auto-generated method stub
+	public boolean insertStudent(Student newStudent) {
+		connect();
 		
+		String sql = "INSERT INTO students (studentName,studentCohort,studentTrack,studentInternship,converted,studentEmail) values(?,?,?,?,?,?)";
+		boolean rowInserted = false;
+		try {
+			PreparedStatement statemnet = jdbcConnection.prepareStatement(sql);
+			statemnet.setString(1, newStudent.getName());
+			statemnet.setString(2, newStudent.getCohortName());
+			statemnet.setString(3, newStudent.getTrack());
+			statemnet.setString(4, newStudent.getInternShip());
+			statemnet.setString(5, newStudent.isConverted());
+			statemnet.setString(6, newStudent.getEmail());
+			
+			rowInserted = statemnet.executeUpdate() > 0;
+			statemnet.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		disconnect();
+		return rowInserted;
 	}
-
+		
 }
